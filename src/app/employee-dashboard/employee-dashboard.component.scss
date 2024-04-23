@@ -1,0 +1,26 @@
+.requests-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .requests-table th, .requests-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .requests-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .requests-table .approved {
+    background-color: lightgreen;
+  }
+  
+  .requests-table .denied {
+    background-color: lightcoral;
+  }
+  
+  .requests-table .pending {
+    background-color: orange;
+  }
+  

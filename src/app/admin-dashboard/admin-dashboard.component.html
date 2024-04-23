@@ -1,0 +1,130 @@
+<div class="dashboard-container">
+    <h2>Welcome to Admin Dashboard!</h2>
+  
+    <!-- Admin Requests Section -->
+    <h3>Admin Requests:</h3>
+    <button (click)="loadAllAdminRequests()">View All Admin Requests</button>
+    <button (click)="loadPendingAdminRequests()">View Pending Admin Requests</button>
+  
+    <div *ngIf="allAdminRequests.length > 0">
+      <h4>All Admin Requests:</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Sender Full Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of allAdminRequests">
+            <td>{{ request.id }}</td>
+            <td>{{ request.title }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ getSenderFullName(request) }}</td>
+            <td>
+              <button (click)="updateRequestStatus(request.id, 'Approved')">Approve</button>
+              <button (click)="updateRequestStatus(request.id, 'Denied')">Deny</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="pendingAdminRequests.length > 0">
+      <h4>Pending Admin Requests:</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Sender Full Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of pendingAdminRequests">
+            <td>{{ request.id }}</td>
+            <td>{{ request.title }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ getSenderFullName(request) }}</td>
+            <td>
+              <button (click)="updateRequestStatus(request.id, 'Approved')">Approve</button>
+              <button (click)="updateRequestStatus(request.id, 'Denied')">Deny</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- HR Requests Section -->
+    <h2>HR Requests:</h2>
+    <button (click)="loadAllHRRequests()">View All HR Requests</button>
+    <button (click)="loadPendingHRRequests()">View Pending HR Requests</button>
+  
+    <div *ngIf="allHRRequests.length > 0">
+      <h4>All HR Requests:</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of allHRRequests">
+            <td>{{ request.id }}</td>
+            <td>{{ request.title }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ getSenderFullName(request) }}</td>
+
+            <td>
+              <button (click)="updateRequestStatus(request.id, 'Approved')">Approve</button>
+              <button (click)="updateRequestStatus(request.id, 'Denied')">Deny</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="pendingHRRequests.length > 0">
+      <h4>Pending HR Requests:</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of pendingHRRequests">
+            <td>{{ request.id }}</td>
+            <td>{{ request.title }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.status }}</td>
+            <td>{{ getSenderFullName(request) }}</td>
+
+            <td>
+              <button (click)="updateRequestStatus(request.id, 'Approved')">Approve</button>
+              <button (click)="updateRequestStatus(request.id, 'Denied')">Deny</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
